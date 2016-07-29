@@ -281,4 +281,4 @@ exit 0
 
 `sudo service jackett start`
 
-7. Now Jackett will automatically start on boot-uo. Check that it is running by typing in your web browser or click [http://localhost:9117](lhttp://localhost:9117)
+7. Now Jackett will automatically start on boot-uo. Check that it is running by typing in your web browser or click [http://localhost:9117](http://localhost:9117)
