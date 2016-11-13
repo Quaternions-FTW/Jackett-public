@@ -126,7 +126,7 @@ and
 
 6. Move the unzipped Jackett installation
 
-`sudo mv Jackett-public/* /opt/jackett`
+`sudo mv Jackett-public*/* /opt/jackett`
 
 7. Change ownership of Jackett to your main user
 
