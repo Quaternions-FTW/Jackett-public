@@ -103,12 +103,12 @@ These instructions are to compile on a windows host
 
 ## Install Jackett on Debian-based Linux (Ubuntu 14.XX+, Debian, etc) - Not to be used with other Jackett branches simultaneously
 
-1. Open "terminal" application.
-2. Install libcurl and bzip for unpacking Jackett
+1- Open "terminal" application.
+2- Install libcurl and bzip for unpacking Jackett
 
 `sudo apt-get install libcurl4-openssl-dev bzip2 -y`
 
-3. Download the latest Jackett release, I have automated grabbing the newest release but if the code below doesn’t work check [here](https://github.com/dreamcat4/Jackett-public/releases) to get the download (ending in .tar.gz)
+3- Download the latest Jackett release, I have automated grabbing the newest release but if the code below doesn’t work check [here](https://github.com/dreamcat4/Jackett-public/releases) to get the download (ending in .tar.gz)
 
 `jackettver=$(wget -q https://github.com/dreamcat4/Jackett-public/releases/latest -O - | grep -E \/tag\/ | awk -F "[><]" '{print $3}')`
 
@@ -116,36 +116,36 @@ and
 
 `wget -q https://github.com/dreamcat4/Jackett-public/releases/download/$jackettver/Jackett-public.Binaries.Mono.tar.gz`
 
-4. Unpack the Jackett release
+4- Unpack the Jackett release
 
 `tar -xvf Jackett*`
 
-5. Make the Jackett installation folder
+5- Make the Jackett installation folder
 
 `sudo mkdir /opt/jackett`
 
-6. Move the unzipped Jackett installation
+6- Move the unzipped Jackett installation
 
 `sudo mv Jackett-public*/* /opt/jackett`
 
-7. Change ownership of Jackett to your main user
+7- Change ownership of Jackett to your main user
 
 `sudo chown -R username:username /opt/jackett`
 
-8. Test running Jackett which runs on port 9117.
+8- Test running Jackett which runs on port 9117.
 
 `mono /opt/jackett/JackettConsole.exe`
 
-9. Type in your web browser or click [http://localhost:9117](http://localhost:9117)
+9- Type in your web browser or click [http://localhost:9117](http://localhost:9117)
 10. Kill the Jackett process by typing Ctrl+C in terminal so we can start it automatically on boot using an init.d script
 
 ## Autostart Jackett on Debian/Ubuntu 14.XX+ - Jackett init.d Script
 
-1. Create the Jackett init.d startup script
+1- Create the Jackett init.d startup script
 
 `sudo nano /etc/init.d/jackett`
 
-2. Paste the Jackett init.d script.
+2- Paste the Jackett init.d script.
 
 ```
 #! /bin/sh
@@ -271,17 +271,17 @@ esac
 exit 0
 ```
 
-3. In the above script only one change must be made. Adjust your RUN_AS value to your main user (look for RUN_AS=QQQQQQQ)
-4. Make the Jackett init.d script executable
+3- In the above script only one change must be made. Adjust your RUN_AS value to your main user (look for RUN_AS=QQQQQQQ)
+4- Make the Jackett init.d script executable
 
 `sudo chmod +x /etc/init.d/jackett`
 
-5. Update your system to use the Jackett init.d script
+5- Update your system to use the Jackett init.d script
 
 `sudo update-rc.d jackett defaults`
 
-6. Now start the Jackett service
+6- Now start the Jackett service
 
 `sudo service jackett start`
 
-7. Now Jackett will automatically start on boot-up. Check that it is running by typing in your web browser or click [http://localhost:9117](http://localhost:9117)
+7- Now Jackett will automatically start on boot-up. Check that it is running by typing in your web browser or click [http://localhost:9117](http://localhost:9117)
